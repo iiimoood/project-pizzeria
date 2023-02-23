@@ -72,6 +72,26 @@
       const menuContainer = document.querySelector(select.containerOf.menu);
       menuContainer.appendChild(thisProduct.element);
     }
+    initAccordion() {
+      const thisProduct = this;
+      const clickableTrigger = document.querySelectorAll(
+        'select.menuProduct.clickable'
+      );
+      clickableTrigger.addEventListener('click', function (event) {
+        event.preventDefault();
+        const activeProducts = document.querySelector(
+          'classNames.menuProduct.wrapperActive.active'
+        );
+        for (let activeProduct of activeProducts) {
+          if (activeProduct != thisProduct.element) {
+            activeProduct.classNames.menuProduct.wrapperActive.remove('active');
+          }
+          thisProduct.element.classNames.menuProduct.wrapperActive.toggle(
+            'active'
+          );
+        }
+      });
+    }
   }
 
   const app = {
