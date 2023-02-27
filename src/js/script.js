@@ -175,9 +175,9 @@
           if (optionImage) {
             console.log('Yes! Found it!');
             if (formData[paramId] && formData[paramId].includes(optionId)) {
-              classNames.menuProduct.imageVisible = 'active';
+              optionImage.classList.add(classNames.menuProduct.imageVisible);
             } else {
-              classNames.menuProduct.imageVisible = null;
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
             }
           }
         }
