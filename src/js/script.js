@@ -159,7 +159,9 @@
 
         for (let optionId in param.options) {
           const option = param.options[optionId];
-          if (formData[paramId] && formData[paramId].includes(optionId)) {
+          const optionSelected =
+            formData[paramId] && formData[paramId].includes(optionId);
+          if (optionSelected) {
             if (!option.default == true) {
               price = price + option.price;
             }
@@ -174,7 +176,7 @@
           console.log(optionImage);
           if (optionImage) {
             console.log('Yes! Found it!');
-            if (formData[paramId] && formData[paramId].includes(optionId)) {
+            if (optionSelected) {
               optionImage.classList.add(classNames.menuProduct.imageVisible);
             } else {
               optionImage.classList.remove(classNames.menuProduct.imageVisible);
