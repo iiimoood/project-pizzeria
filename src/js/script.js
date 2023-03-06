@@ -268,7 +268,7 @@
           const optionSelected =
             formData[paramId] && formData[paramId].includes(optionId);
           if (optionSelected) {
-            params[paramId].options.add(option);
+            params[paramId].options = option;
           }
         }
       }
@@ -356,9 +356,9 @@
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(
         select.cart.toggleTrigger
       );
-      thisCart.dom.productList = document.querySelector(
+      /*thisCart.dom.productList = document.querySelector(
         select.cart.productList
-      );
+      );*/
     }
     initActions() {
       const thisCart = this;
@@ -368,16 +368,16 @@
     }
     add(menuProduct) {
       const thisCart = this;
-      const generatedHTML = templates.cartProduct(menuProduct.data);
-      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-      thisCart.dom.productList.appendChild(generatedDOM);
+      //const generatedHTML = templates.cartProduct(menuProduct.data);
+      //const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+      //thisCart.dom.productList.appendChild(generatedDOM);
       console.log('adding product: ', menuProduct);
-      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+      thisCart.products.push(menuProduct);
       console.log('thisCart.products: ', thisCart.products);
     }
   }
 
-  class CartProduct {
+  /*class CartProduct {
     constructor(menuProduct, element) {
       const thisCartProduct = this;
       thisCartProduct.id = menuProduct.id;
@@ -409,7 +409,7 @@
         function () {}
       );
     }
-  }
+  }*/
 
   const app = {
     initMenu: function () {
