@@ -97,7 +97,7 @@
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
 
-      //console.log('new Product: ', thisProduct);
+      console.log('new Product: ', thisProduct);
     }
     renderInMenu() {
       const thisProduct = this;
@@ -190,7 +190,7 @@
 
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.form);
-      //console.log('formData', formData);
+      console.log('formData', formData);
 
       // set price to default price
       let price = thisProduct.data.price;
@@ -227,7 +227,7 @@
         }
       }
       price *= thisProduct.amountWidget.value;
-      thisProduct.priceSingle = thisProduct.priceElem.innerHTML;
+      thisProduct.priceSingle = thisProduct.data.price;
       thisProduct.priceElem.innerHTML = price;
     }
     addToCart() {
@@ -356,7 +356,7 @@
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(
         select.cart.toggleTrigger
       );
-      thisCart.dom.productList = document.querySelector(
+      thisCart.dom.productList = thisCart.dom.wrapper.querySelector(
         select.cart.productList
       );
     }
@@ -366,11 +366,11 @@
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
     }
-    add() {
+    add(menuProduct) {
       const thisCart = this;
-      const generatedHTML = templates.cartProduct(thisCart);
-      //const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-      //thisCart.dom.productList.appendChild(generatedDOM);
+      const generatedHTML = templates.cartProduct(menuProduct);
+      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+      thisCart.dom.productList.appendChild(generatedDOM);
       console.log('adding product: ', menuProduct);
       thisCart.products.push(menuProduct);
       console.log('thisCart.products: ', thisCart.products);
@@ -414,7 +414,7 @@
   const app = {
     initMenu: function () {
       const thisApp = this;
-      //console.log('thisApp.data: ', thisApp.data);
+      console.log('thisApp.data: ', thisApp.data);
       for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
       }
