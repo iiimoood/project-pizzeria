@@ -268,7 +268,7 @@
           const optionSelected =
             formData[paramId] && formData[paramId].includes(optionId);
           if (optionSelected) {
-            params[paramId].options[option] = option.label;
+            params[paramId].options[optionId] = option.label;
           }
         }
       }
@@ -390,25 +390,19 @@
       thisCartProduct.initAmountWidget();
       console.log('thisCartProduct: ', thisCartProduct);
     }
+
     getElements(element) {
       const thisCartProduct = this;
 
       thisCartProduct.dom = {
-        amountWidget: thisCartProduct.dom.wrapper.querySelector(
-          select.cartProduct.amountWidget
-        ),
-        price: thisCartProduct.dom.wrapper.querySelector(
-          select.cartProduct.price
-        ),
-        edit: thisCartProduct.dom.wrapper.querySelector(
-          select.cartProduct.edit
-        ),
-        remove: thisCartProduct.dom.wrapper.querySelector(
-          select.cartProduct.remove
-        ),
+        wrapper: element,
+        amountWidget: element.querySelector(select.cartProduct.amountWidget),
+        price: element.querySelector(select.cartProduct.price),
+        edit: element.querySelector(select.cartProduct.edit),
+        remove: element.querySelector(select.cartProduct.remove),
       };
-      thisCartProduct.dom.wrapper = element;
     }
+
     initAmountWidget() {
       const thisCartProduct = this;
       thisCartProduct.amountWidget = new AmountWidget(
