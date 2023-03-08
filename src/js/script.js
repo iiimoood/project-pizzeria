@@ -226,8 +226,8 @@
           }
         }
       }
+      thisProduct.priceSingle = price;
       price *= thisProduct.amountWidget.value;
-      thisProduct.priceSingle = thisProduct.data.price;
       thisProduct.priceElem.innerHTML = price;
     }
     addToCart() {
@@ -359,6 +359,18 @@
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(
         select.cart.productList
       );
+      thisCart.dom.deliveryFee = thisCart.dom.wrapper.querySelector(
+        select.cart.deliveryFee
+      );
+      thisCart.dom.subtotalPrice = thisCart.dom.wrapper.querySelector(
+        select.cart.subtotalPrice
+      );
+      thisCart.dom.totalPrice = thisCart.dom.wrapper.querySelectorAll(
+        select.cart.totalPrice
+      );
+      thisCart.dom.totalNumber = thisCart.dom.wrapper.querySelector(
+        select.cart.totalNumber
+      );
     }
     initActions() {
       const thisCart = this;
@@ -374,6 +386,27 @@
       console.log('adding product: ', menuProduct);
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
       console.log('thisCart.products: ', thisCart.products);
+      thisCart.update();
+    }
+    update() {
+      const thisCart = this;
+      const deliveryFee = settings.cart.defaultDeliveryFee;
+      let totalNumber = 0;
+      let subtotalPrice = 0;
+
+      for (thisCart.product of thisCart.products) {
+        totalNumber += thisCart.product.amount;
+        subtotalPrice += thisCart.product.price;
+      }
+      if (totalNumber >= 0) {
+        thisCart.totalPrice = subtotalPrice + deliveryFee;
+      } else {
+        deliveryFee = 0;
+      }
+      console.log(deliveryFee);
+      console.log(totalNumber);
+      console.log(subtotalPrice);
+      console.log(thisCart.totalPrice);
     }
   }
 
@@ -408,10 +441,12 @@
       thisCartProduct.amountWidget = new AmountWidget(
         thisCartProduct.dom.amountWidget
       );
-      thisCartProduct.dom.amountWidget.addEventListener(
-        'updated',
-        function () {}
-      );
+      thisCartProduct.dom.amountWidget.addEventListener('updated', function () {
+        thisCartProduct.amount = thisCartProduct.amountWidget.input.value;
+        thisCartProduct.price =
+          thisCartProduct.amount * thisCartProduct.priceSingle;
+        thisCartProduct.dom.price = thisCartProduct.price;
+      });
     }
   }
 
