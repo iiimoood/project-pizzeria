@@ -27,27 +27,18 @@ class AmountWidget extends BaseWidget {
       select.widgets.amount.linkIncrease
     );
   }
-  setValue(value) {
-    const thisWidget = this;
 
-    const newValue = thisWidget.parseValue(value);
-
-    if (thisWidget.value !== newValue && thisWidget.isValid(newValue)) {
-      thisWidget.value = newValue;
-    }
-
-    thisWidget.dom.input.value = thisWidget.value;
-    thisWidget.announce();
-  }
-  parseValue(value) {
-    return parseInt(value);
-  }
   isValid(value) {
     return (
       !isNaN(value) &&
       value >= settings.amountWidget.defaultMin &&
       value <= settings.amountWidget.defaultMax
     );
+  }
+  renderValue() {
+    const thisWidget = this;
+
+    thisWidget.dom.input.value = thisWidget.value;
   }
 
   initActions() {
@@ -64,14 +55,6 @@ class AmountWidget extends BaseWidget {
       event.preventDefault();
       thisWidget.setValue(thisWidget.value + 1);
     });
-  }
-  announce() {
-    const thisWidget = this;
-
-    const event = new CustomEvent('updated', {
-      bubbles: true,
-    });
-    thisWidget.dom.wrapper.dispatchEvent(event);
   }
 }
 
