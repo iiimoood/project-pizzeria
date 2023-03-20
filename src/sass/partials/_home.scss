@@ -1,0 +1,15 @@
+.home-wrapper {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+}
+
+.home-order {
+  background-image: url('../../images/assets/pizza-1.jpg');
+}
+
+.home-booking {
+  background-image: url('../../images/assets/pizza-2.jpg');
+}
