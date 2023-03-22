@@ -100,12 +100,12 @@
       <div class='home-wrapper'>
         <div class='home-info'>
           <div class='home-order'>
-            <h1><a href='#'>ORDER ONLINE</a></h1>
-            <p>Delicious food delivered to your door</p>
+            <h1><a href='#' class='home-link order-link'>ORDER ONLINE</a></h1>
+            <p class='unvisible'>Delicious food delivered to your door</p>
           </div>
           <div class='home-booking'>
-            <h1><a href='#'>>BOOK A TABLE</a></h1>
-            <p>Eat delicious food in our restaurant</p>
+            <h1><a href='#' class='home-link booking-link'>BOOK A TABLE</a></h1>
+            <p class='unvisible'>Eat delicious food in our restaurant</p>
           </div>
           <div class='opening-hours'>
             <h1>OPENING HOURS:</h1>
@@ -115,40 +115,78 @@
         <div class='main-carousel' data-flickity='{ "autoPlay": true }'>
           <div class='carousel-cell'>
             <img src='images/assets/pizza-3.jpg' alt='People in restaurant' />
-            <h1 class='opinion-header'>AMAZING SERVICE!</h1>
-            <p class='opinion-content'>Lorem ipsum lorem ipsum lorem ipsum lorem
-              ipsum lorem ipsum lorem ipsum</p>
-            <p class='opinion-author'>~Margaret Osborne</p>
+            <div class='carousel-text'>
+              <h1 class='opinion-header'>AMAZING SERVICE!</h1>
+              <p class='opinion-content'>Lorem ipsum lorem ipsum lorem ipsum
+                lorem ipsum lorem ipsum lorem ipsum</p>
+              <p class='opinion-author'>~Margaret Osborne</p>
+            </div>
           </div>
           <div class='carousel-cell'>
             <img src='images/assets/pizza-3.jpg' alt='People in restaurant' />
-            <h1 class='opinion-header'>DELICIOUS FOOD!</h1>
-            <p class='opinion-content'>Lorem ipsum lorem ipsum lorem ipsum lorem
-              ipsum lorem ipsum lorem ipsum</p>
-            <p class='opinion-author'>~Kaslik Amanow</p>
+            <div class='carousel-text'>
+              <h1 class='opinion-header'>DELICIOUS FOOD!</h1>
+              <p class='opinion-content'>Lorem ipsum lorem ipsum lorem ipsum
+                lorem ipsum lorem ipsum lorem ipsum</p>
+              <p class='opinion-author'>~Kaslik Amanow</p>
+            </div>
           </div>
           <div class='carousel-cell'>
             <img src='images/assets/pizza-3.jpg' alt='People in restaurant' />
-            <h1 class='opinion-header'>GREAT VENUE!</h1>
-            <p class='opinion-content'>Lorem ipsum lorem ipsum lorem ipsum lorem
-              ipsum lorem ipsum lorem ipsum</p>
-            <p class='opinion-author'>~Rupert Sasnow</p>
+            <div class='carousel-text'>
+              <h1 class='opinion-header'>GREAT VENUE!</h1>
+              <p class='opinion-content'>Lorem ipsum lorem ipsum lorem ipsum
+                lorem ipsum lorem ipsum lorem ipsum</p>
+              <p class='opinion-author'>~Rupert Sasnow</p>
+            </div>
           </div>
           <div class='carousel-cell'>
             <img src='images/assets/pizza-3.jpg' alt='People in restaurant' />
-            <h1 class='opinion-header'>BEST SERVICE!</h1>
-            <p class='opinion-content'>Lorem ipsum lorem ipsum lorem ipsum lorem
-              ipsum lorem ipsum lorem ipsum</p>
-            <p class='opinion-author'>~Kaslik Amanow</p>
+            <div class='carousel-text'>
+              <h1 class='opinion-header'>BEST SERVICE!</h1>
+              <p class='opinion-content'>Lorem ipsum lorem ipsum lorem ipsum
+                lorem ipsum lorem ipsum lorem ipsum</p>
+              <p class='opinion-author'>~Kaslik Amanow</p>
+            </div>
           </div>
         </div>
         <div class='home-gallery'>
-          <img src='images/assets/pizza-4.jpg' alt='Waiter with dishes' />
-          <img src='images/assets/pizza-5.jpg' alt='Meal and vegetables' />
-          <img src='images/assets/pizza-6.jpg' alt='Pizza on table' />
-          <img src='images/assets/pizza-7.jpg' alt='Badge open' />
-          <img src='images/assets/pizza-8.jpg' alt='Person making a cake' />
-          <img src='images/assets/pizza-9.jpg' alt='Door to restaurant' />
+          <div class='gallery-element one'>
+            <div class='icons'>
+              <i class='fa-solid fa-heart'></i>
+              <i class='fa-sharp fa-solid fa-share-nodes'></i>
+            </div>
+          </div>
+          <div class='gallery-element two'>
+            <div class='icons'>
+              <i class='fa-solid fa-heart'></i>
+              <i class='fa-sharp fa-solid fa-share-nodes'></i>
+            </div>
+          </div>
+          <div class='gallery-element three'>
+            <div class='icons'>
+              <i class='fa-solid fa-heart'></i>
+              <i class='fa-sharp fa-solid fa-share-nodes'></i>
+            </div>
+          </div>
+          <div class='gallery-element four'>
+            <div class='icons'>
+              <i class='fa-solid fa-heart'></i>
+              <i class='fa-sharp fa-solid fa-share-nodes'></i>
+            </div>
+          </div>
+          <div class='gallery-element five'>
+            <div class='icons'>
+              <i class='fa-solid fa-heart'></i>
+              <i class='fa-sharp fa-solid fa-share-nodes'></i>
+            </div>
+          </div>
+          <div class='gallery-element six'>
+            <div class='icons'>
+              <i class='fa-solid fa-heart'></i>
+              <i class='fa-sharp fa-solid fa-share-nodes'></i>
+            </div>
+          </div>
         </div>
         <div class='home-link'>
           <a href='#'>View more on Instagram</a>
@@ -355,6 +393,10 @@
       </div>
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/9ad91e45b8.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="vendor/range-slider.min.js"></script>
     <script src="vendor/flickity.pkgd.min.js"></script>
