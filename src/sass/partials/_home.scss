@@ -17,6 +17,7 @@
   text-decoration: none;
   color: $color-light;
 }
+
 .home-order {
   background-image: url('../../images/assets/pizza-1.jpg');
   width: 49%;
@@ -68,6 +69,7 @@
   width: 160px;
   flex: 1 0 0;
 }
+
 .carousel-text {
   height: 160px;
   width: 300px;
@@ -83,6 +85,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .gallery-element {
   height: 180px;
   width: 180px;
@@ -95,18 +98,23 @@
 .one {
   background-image: url('../../images/assets/pizza-4.jpg');
 }
+
 .two {
   background-image: url('../../images/assets/pizza-5.jpg');
 }
+
 .three {
   background-image: url('../../images/assets/pizza-6.jpg');
 }
+
 .four {
   background-image: url('../../images/assets/pizza-7.jpg');
 }
+
 .five {
   background-image: url('../../images/assets/pizza-8.jpg');
 }
+
 .six {
   background-image: url('../../images/assets/pizza-9.jpg');
 }
@@ -116,9 +124,11 @@
   color: $color-light;
   margin-right: 10px;
 }
+
 .icons {
   display: none;
 }
+
 .fa-solid:hover {
   color: $color-main;
 }

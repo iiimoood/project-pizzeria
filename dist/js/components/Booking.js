@@ -10,6 +10,7 @@ class Booking {
 
     thisBooking.render(element);
     thisBooking.initWidgets();
+    thisBooking.initActions();
     thisBooking.getData();
 
     thisBooking.selectedTable = '';
@@ -205,6 +206,9 @@ class Booking {
       thisBooking.dom.wrapper.querySelector('.floor-plan');
     thisBooking.dom.form =
       thisBooking.dom.wrapper.querySelector('.booking-form');
+    thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(
+      select.booking.starters
+    );
   }
   initWidgets() {
     const thisBooking = this;
@@ -219,9 +223,7 @@ class Booking {
       thisBooking.updateDOM();
     });
 
-    thisBooking.dom.tablesContainer.addEventListener('click', function () {
-      thisBooking.initTables();
-    });
+    thisBooking.initTables();
   }
   initActions() {
     const thisBooking = this;
@@ -229,7 +231,6 @@ class Booking {
     thisBooking.dom.form.addEventListener('submit', function (event) {
       event.preventDefault();
       thisBooking.sendBooking();
-      thisBooking.makeBooked();
     });
   }
   initTables() {
@@ -272,22 +273,19 @@ class Booking {
     const thisBooking = this;
     const url = settings.db.url + '/' + settings.db.bookings;
     const payload = {
-      date: thisBooking.date,
+      date: thisBooking.datePicker.value,
       hour: thisBooking.hourPicker.value,
-      table: thisBooking.table || null,
-      duration: parseInt(thisBooking.duration),
-      ppl: parseInt(thisBooking.ppl),
+      table: thisBooking.selectedTable,
+      duration: thisBooking.hoursAmount.value,
+      ppl: thisBooking.peopleAmount.value,
       starters: [],
       phone: thisBooking.phone,
       address: thisBooking.address,
     };
 
-    for (let starter of thisBooking.starters) {
+    for (let starter of thisBooking.dom.starters) {
       if (starter.checked) {
-        payload.starters.push(starter.getData());
-      } else {
-        const index = thisBooking.starters.indexOf(starter);
-        thisBooking.starters.splice(index, 1);
+        payload.starters.push(starter.value);
       }
     }
     const options = {
@@ -304,6 +302,12 @@ class Booking {
       })
       .then(function (parsedResponse) {
         console.log('parsedResponse:', parsedResponse);
+        thisBooking.makeBooked(
+          payload.date,
+          payload.hour,
+          payload.duration,
+          payload.table
+        );
       });
   }
 }
